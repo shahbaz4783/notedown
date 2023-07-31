@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const Cards = () => {
+export const Cards = (props) => {
   return (
     <div className='note-card'>
-        <h3>This is Title</h3>
-        <p>This is content</p>
+        <h1>{props.title}</h1>
+        <p>{props.body}</p>
     </div>
   )
 }
