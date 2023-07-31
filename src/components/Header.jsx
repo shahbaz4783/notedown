@@ -14,7 +14,7 @@ export const Header = () => {
                 <li>Archive</li>
             </ul>
         </nav>
-
+        
     </header>
   )
 }
