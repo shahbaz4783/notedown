@@ -1,0 +1,11 @@
+.note-card {
+    background-color: var(--cards);
+    width: 24%;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    p {
+        color: var(--light-text);
+    }
+}
