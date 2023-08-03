@@ -1,5 +1,4 @@
 import { Header } from './components/Header';
-import { Footer } from './components/Footer';
 import { CardsContainer } from './components/CardsContainer';
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
     <>
       <Header />
       <CardsContainer />
-      <Footer />
+
     </>
   )
 }
