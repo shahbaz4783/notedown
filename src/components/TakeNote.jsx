@@ -1,13 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { Card } from '@mui/material';
 
 export const TakeNote = () => {
+
+  const [note, setNote] = useState({
+    title: '',
+    body: ''
+  })
+
+  const handleChange = (e) => {
+     const { name, value } = e.target;
+
+     setNote(prevNote => {
+      return {
+        ...prevNote,
+        [name]: value
+      }
+     })
+  }
+
+  const submitNote = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <div>
+    <Card sx={{ maxWidth: 345, backgroundColor: 'black' }}>
         <form>
-            <input type='text' placeholder='Title' /> <br />
-            <textarea name='content' type='text'  placeholder='Take a note...' />
-            <button>Add</button>
+            <input name='title' type='text' onChange={handleChange} value={note.title} placeholder='Title' /> <br />
+            <textarea name='body' type='text' onChange={handleChange} value={note.body} placeholder='Take a note...' /> <br />
+            <Fab onClick={submitNote}>
+            <AddIcon />
+            </Fab>
         </form>
-    </div>
+    </Card>
   )
 }
