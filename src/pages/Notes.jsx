@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cards } from './Cards'
+import { Cards } from '../components/Cards'
 import notes from '../notes'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -22,7 +22,7 @@ const createNotes = (note) => {
   )
 }
 
-export const CardsContainer = () => {
+export const Notes = () => {
   return (
     <main className='notes-container'>
         {notes.map(createNotes)}

@@ -1,13 +1,12 @@
 import { Header } from './components/Header';
-import { CardsContainer } from './components/CardsContainer';
+import { Notes } from './pages/Notes';
 
 function App() {
 
   return (
     <>
       <Header />
-      <CardsContainer />
-
+      <Notes />
     </>
   )
 }
