@@ -102,9 +102,9 @@ export const Header = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} style={{backgroundColor: 'black'}}>
         <Toolbar>
           <IconButton
             color="inherit"

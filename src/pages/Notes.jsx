@@ -1,21 +1,22 @@
 import React from 'react'
 import { Cards } from '../components/Cards'
 import notes from '../notes'
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import { TakeNote } from '../components/TakeNote';
+import { Header } from '../components/Header';
 
-const createNotes = (note) => {
+
+const createNotes = ({ id, title, body }) => {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="sm">
+      <React.Fragment>
+
+      
       <Cards 
-        key={note.id}
-        title={note.title}
-        body={note.body}
+        key={id}
+        title={title}
+        body={body}
       />
-        
-      </Container>
+     
     </React.Fragment>
 
       
@@ -24,8 +25,12 @@ const createNotes = (note) => {
 
 export const Notes = () => {
   return (
-    <main className='notes-container'>
+    <React.Fragment>
+        <Header />
+        <Container maxWidth="sm">
+        <TakeNote />
         {notes.map(createNotes)}
-    </main>
+        </Container>
+    </React.Fragment>
   )
 }
