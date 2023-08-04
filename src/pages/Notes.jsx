@@ -7,16 +7,14 @@ import { Header } from '../components/Header';
 
 
 const createNotes = ({ id, title, body }) => {
+    
   return (
       <React.Fragment>
-
-      
       <Cards 
         key={id}
         title={title}
         body={body}
       />
-     
     </React.Fragment>
 
       
@@ -27,7 +25,7 @@ export const Notes = () => {
   return (
     <React.Fragment>
         <Header />
-        <Container maxWidth="sm">
+        <Container>
         <TakeNote />
         {notes.map(createNotes)}
         </Container>
