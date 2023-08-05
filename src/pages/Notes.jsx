@@ -18,7 +18,6 @@ export const Notes = () => {
 			<Header />
 			<Container
 				style={{
-					border: '2px solid red',
 					display: 'flex',
 					flexDirection: 'column',
 					justifyContent: 'center',

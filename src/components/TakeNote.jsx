@@ -3,39 +3,35 @@ import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Zoom from '@mui/material/Zoom';
 
-
 const formStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  border: '2px solid white',
-  position: 'relative',
-  borderRadius: '0.6em',
-  width: '65%',
-}
+	display: 'flex',
+	flexDirection: 'column',
+	border: '2px solid white',
+	position: 'relative',
+	borderRadius: '0.6em',
+	width: '65%',
+};
 
 const inputStyle = {
-  resize: 'none',
-  all: 'unset',
-  padding: '20px',
-  color: 'white',
-
-  
-}
+	resize: 'none',
+	all: 'unset',
+	padding: '20px',
+	color: 'white',
+};
 
 const textAreaStyle = {
-  resize: 'none',
-  all: 'unset',
-  padding: '20px',
-  color: 'white',
-
-}
+	resize: 'none',
+	all: 'unset',
+	padding: '20px',
+	color: 'white',
+};
 
 const addBtn = {
-  backgroundColor: 'yellow',
-  position: 'absolute',
-  bottom: '10px',
-  right: '10px'
-}
+	backgroundColor: 'yellow',
+	position: 'absolute',
+	bottom: '10px',
+	right: '10px',
+};
 
 export const TakeNote = (props) => {
 	const [isExpanded, setExpanded] = useState(false);
@@ -62,40 +58,43 @@ export const TakeNote = (props) => {
 
 	const submitNote = (e) => {
 		e.preventDefault();
-    props.onAdd(note);
+		props.onAdd(note);
+		setNote({
+			title: '',
+			body: '',
+		});
+		setExpanded(false);
 	};
 
 	return (
-
-			<form style={formStyle}>
-
-			{ isExpanded &&	<input
-          style={inputStyle}
+		<form style={formStyle}>
+			{isExpanded && (
+				<input
+					style={inputStyle}
 					name='title'
 					type='text'
 					onChange={handleChange}
 					value={note.title}
 					placeholder='Title'
 				/>
-        }
+			)}
 
-				<textarea
-          style={textAreaStyle}
-					onClick={expand}
-					name='body'
-					type='text'
-					onChange={handleChange}
-					value={note.body}
-					placeholder='Take a note...'
-          rows={isExpanded ? 4 : 1}
-				/>
+			<textarea
+				style={textAreaStyle}
+				onClick={expand}
+				name='body'
+				type='text'
+				onChange={handleChange}
+				value={note.body}
+				placeholder='Take a note...'
+				rows={isExpanded ? 4 : 1}
+			/>
 
-        <Zoom in={isExpanded}>
+			<Zoom in={isExpanded}>
 				<Fab onClick={submitNote} style={addBtn}>
 					<AddIcon />
 				</Fab>
-        </Zoom>
-			</form>
-
+			</Zoom>
+		</form>
 	);
 };
