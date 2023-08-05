@@ -1,12 +1,13 @@
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
 import Typography from '@mui/material/Typography';
+import { Container } from '@mui/material';
 
 export const Cards = ({ title, body }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Container sx={{display: 'flex', flexWrap:'wrap'}}>
+    <Card sx={{ border:'2px solid blue', margin:'1em' }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -16,5 +17,6 @@ export const Cards = ({ title, body }) => {
         </Typography>
       </CardContent>
     </Card>
+    </Container>
   )
 }

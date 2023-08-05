@@ -1,34 +1,37 @@
-import React from 'react'
-import { Cards } from '../components/Cards'
-import notes from '../notes'
+import React, { useState } from 'react';
+import { Cards } from '../components/Cards';
 import Container from '@mui/material/Container';
 import { TakeNote } from '../components/TakeNote';
 import { Header } from '../components/Header';
 
-
-const createNotes = ({ id, title, body }) => {
-    
-  return (
-      <React.Fragment>
-      <Cards 
-        key={id}
-        title={title}
-        body={body}
-      />
-    </React.Fragment>
-
-      
-  )
-}
-
 export const Notes = () => {
-  return (
-    <React.Fragment>
-        <Header />
-        <Container>
-        <TakeNote />
-        {notes.map(createNotes)}
-        </Container>
-    </React.Fragment>
-  )
-}
+	const [notesArr, setNotesArr] = useState([]);
+
+	const addNote = (newNote) => {
+		setNotesArr((prevNotes) => {
+			return [...prevNotes, newNote];
+		});
+	};
+
+	return (
+		<React.Fragment>
+			<Header />
+			<Container
+				style={{
+					border: '2px solid red',
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				<TakeNote onAdd={addNote} />
+
+				{notesArr.map((noteItem) => {
+					return <Cards title={noteItem.title} body={noteItem.body} />;
+				})}
+
+			</Container>
+		</React.Fragment>
+	);
+};

@@ -1,27 +1,43 @@
 import React, { useState } from 'react';
 import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { Card } from '@mui/material';
 import Zoom from '@mui/material/Zoom';
 
 
 const formStyle = {
   display: 'flex',
   flexDirection: 'column',
-
-  padding: '1em',
+  border: '2px solid white',
+  position: 'relative',
+  borderRadius: '0.6em',
+  width: '65%',
 }
 
 const inputStyle = {
   resize: 'none',
   all: 'unset',
-  backgroundColor: 'black',
   padding: '20px',
   color: 'white',
-  borderRadius: '0.6em'
+
+  
 }
 
-export const TakeNote = () => {
+const textAreaStyle = {
+  resize: 'none',
+  all: 'unset',
+  padding: '20px',
+  color: 'white',
+
+}
+
+const addBtn = {
+  backgroundColor: 'yellow',
+  position: 'absolute',
+  bottom: '10px',
+  right: '10px'
+}
+
+export const TakeNote = (props) => {
 	const [isExpanded, setExpanded] = useState(false);
 
 	const expand = () => {
@@ -46,10 +62,11 @@ export const TakeNote = () => {
 
 	const submitNote = (e) => {
 		e.preventDefault();
+    props.onAdd(note);
 	};
 
 	return (
-		<Card sx={{ maxWidth: 345, backgroundColor: 'black' }}>
+
 			<form style={formStyle}>
 
 			{ isExpanded &&	<input
@@ -63,7 +80,7 @@ export const TakeNote = () => {
         }
 
 				<textarea
-          style={inputStyle}
+          style={textAreaStyle}
 					onClick={expand}
 					name='body'
 					type='text'
@@ -74,11 +91,11 @@ export const TakeNote = () => {
 				/>
 
         <Zoom in={isExpanded}>
-				<Fab onClick={submitNote}>
+				<Fab onClick={submitNote} style={addBtn}>
 					<AddIcon />
 				</Fab>
         </Zoom>
 			</form>
-		</Card>
+
 	);
 };
