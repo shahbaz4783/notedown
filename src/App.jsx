@@ -1,5 +1,4 @@
 import { Notes } from './pages/Notes';
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({

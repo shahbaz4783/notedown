@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Zoom from '@mui/material/Zoom';
+import axios from 'axios';
 
 const formStyle = {
 	display: 'flex',
@@ -58,7 +59,15 @@ export const TakeNote = (props) => {
 
 	const submitNote = (e) => {
 		e.preventDefault();
-		props.onAdd(note);
+		 axios
+				.post(`${import.meta.env.VITE_SERVER_URI}/notes`, note)
+				.then((response) => {
+					console.log(response.data); // You can handle the server response here
+				})
+				.catch((error) => {
+					console.error('Error posting note:', error);
+				});
+		// props.onAdd(note);
 		setNote({
 			title: '',
 			body: '',
