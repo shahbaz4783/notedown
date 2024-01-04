@@ -104,6 +104,7 @@ export const Header = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+      
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -118,11 +119,12 @@ export const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6">
             Notedown
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>

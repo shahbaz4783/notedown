@@ -29,7 +29,6 @@ export const Notes = () => {
 				{notesArr.map((noteItem) => {
 					return <Cards title={noteItem.title} body={noteItem.body} />;
 				})}
-
 			</Container>
 		</React.Fragment>
 	);
