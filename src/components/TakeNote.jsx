@@ -62,12 +62,12 @@ export const TakeNote = (props) => {
 		 axios
 				.post(`${import.meta.env.VITE_SERVER_URI}/notes`, note)
 				.then((response) => {
-					console.log(response.data); // You can handle the server response here
+					console.log(response.data);
 				})
 				.catch((error) => {
 					console.error('Error posting note:', error);
 				});
-		// props.onAdd(note);
+		props.onAdd(note);
 		setNote({
 			title: '',
 			body: '',
